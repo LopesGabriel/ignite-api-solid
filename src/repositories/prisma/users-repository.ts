@@ -8,6 +8,14 @@ export class PrismaUsersRepository implements IUsersRepository {
     return user
   }
 
+  findById(id: string) {
+    return prisma.user.findUnique({
+      where: {
+        id,
+      },
+    })
+  }
+
   findByEmail(email: string) {
     return prisma.user.findUnique({
       where: {
