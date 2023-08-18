@@ -23,6 +23,9 @@ export async function register(request: FastifyRequest, reply: FastifyReply) {
       password,
     })
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    delete (user as any).password_hash
+
     return reply.status(201).send({ data: user })
   } catch (err) {
     if (err instanceof UserAlreadyExistsError) {
