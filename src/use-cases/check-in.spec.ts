@@ -23,15 +23,15 @@ describe('Check-in Use Case', () => {
     const gym = await gymsRepository.create({
       phone: '5561982352349',
       title: 'Academia Omni',
-      latitude: -15.8242778,
-      longitude: -48.0307621,
+      latitude: -15.8291367,
+      longitude: -48.0412025,
     })
 
     const { checkIn } = await sut.execute({
       gymId: gym.id,
       userId: 'user-1',
-      userLatitude: -15.8242778,
-      userLongitude: -48.0307621,
+      userLatitude: -15.8291367,
+      userLongitude: -48.0412025,
     })
 
     expect(checkIn.id).toEqual(expect.any(String))
@@ -93,5 +93,23 @@ describe('Check-in Use Case', () => {
         user_id: 'user-1',
       }),
     )
+  })
+
+  it('should not be able to check in far from gym', async () => {
+    const gym = await gymsRepository.create({
+      phone: '5561982352349',
+      title: 'Academia Omni',
+      latitude: -15.8283674,
+      longitude: -48.0392025,
+    })
+
+    await expect(() =>
+      sut.execute({
+        gymId: gym.id,
+        userId: 'user-1',
+        userLatitude: -15.8041062,
+        userLongitude: -48.0682234,
+      }),
+    ).rejects.toBeInstanceOf(Error)
   })
 })
