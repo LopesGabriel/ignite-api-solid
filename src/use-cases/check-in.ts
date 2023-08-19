@@ -17,6 +17,15 @@ export class CheckInUseCase {
     gymId,
     userId,
   }: ICheckinUseCaseRequest): Promise<ICheckinUseCaseResponse> {
+    const checkInOnSameDate = await this.checkInsRepository.findByUserIdOnDate(
+      userId,
+      new Date(),
+    )
+
+    if (checkInOnSameDate) {
+      throw new Error('Max check-ins reached.')
+    }
+
     const checkIn = await this.checkInsRepository.create({
       gym_id: gymId,
       user_id: userId,
