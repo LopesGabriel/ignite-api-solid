@@ -10,15 +10,15 @@ Gympass style app.
 - [ ] Should be possible retrieve the amount of user's check-ins;
 - [ ] Should be possible to retrieve gyms near user;
 - [ ] Should be possible search gym by name;
-- [ ] Should be possible to do check-in in a gym;
+- [x] Should be possible to do check-in in a gym;
 - [ ] Should be possible to validate user's check-in;
-- [ ] Should be possible to create a gym;
+- [x] Should be possible to create a gym;
 
 ## BRs (Business rules)
 
 - [x] User can't signup with e-mail already used;
-- [ ] User can't do check-in twice a day;
-- [ ] User can't do check-in 100m far from gym;
+- [x] User can't do check-in twice a day;
+- [x] User can't do check-in 100m far from gym;
 - [ ] The check-in can only be validated until 20 minutes after creation;
 - [ ] The check-in can only be validated by admins;
 - [ ] Gym can only be created by admins
