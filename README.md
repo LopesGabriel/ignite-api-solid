@@ -11,7 +11,7 @@ Gympass style app.
 - [x] Should be possible to retrieve gyms near user (10km);
 - [x] Should be possible search gym by name;
 - [x] Should be possible to do check-in in a gym;
-- [ ] Should be possible to validate user's check-in;
+- [x] Should be possible to validate user's check-in;
 - [x] Should be possible to create a gym;
 
 ## BRs (Business rules)
@@ -19,7 +19,7 @@ Gympass style app.
 - [x] User can't signup with e-mail already used;
 - [x] User can't do check-in twice a day;
 - [x] User can't do check-in 100m far from gym;
-- [ ] The check-in can only be validated until 20 minutes after creation;
+- [x] The check-in can only be validated until 20 minutes after creation;
 - [ ] The check-in can only be validated by admins;
 - [ ] Gym can only be created by admins
 
