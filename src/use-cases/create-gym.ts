@@ -2,7 +2,7 @@ import { Gym } from '@prisma/client'
 import { IGymsRepository } from '@/repositories/gyms-repository'
 import { Decimal } from '@prisma/client/runtime/library'
 
-interface ICreateGymCaseRequest {
+interface ICreateGymUseCaseRequest {
   title: string
   description: string | null
   phone: string
@@ -10,11 +10,11 @@ interface ICreateGymCaseRequest {
   longitude: number
 }
 
-interface ICreateGymCaseResponse {
+interface ICreateGymUseCaseResponse {
   gym: Gym
 }
 
-export class CreateGymCase {
+export class CreateGymUseCase {
   constructor(private readonly gymsRepository: IGymsRepository) {}
 
   async handle({
@@ -23,7 +23,7 @@ export class CreateGymCase {
     longitude,
     phone,
     title,
-  }: ICreateGymCaseRequest): Promise<ICreateGymCaseResponse> {
+  }: ICreateGymUseCaseRequest): Promise<ICreateGymUseCaseResponse> {
     const gym = await this.gymsRepository.create({
       latitude: new Decimal(latitude),
       longitude: new Decimal(longitude),
