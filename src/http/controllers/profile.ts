@@ -8,5 +8,5 @@ export async function profile(request: FastifyRequest, reply: FastifyReply) {
     userId: request.user.sub,
   })
 
-  return reply.status(200).send(user)
+  return reply.status(200).send({ data: user })
 }
