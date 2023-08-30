@@ -1,0 +1,31 @@
+name: Run E2E tests
+
+on: [pull_request]
+
+jobs:
+  run-e2e-tests:
+    name: Run E2E Tests
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: bitnami/postgresql
+        ports:
+          - 5432:5432
+        environment:
+          - POSTGRESQL_USERNAME=ci
+          - POSTGRESQL_PASSWORD=cipassword
+          - POSTGRESQL_DATABASE=apisolid
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'npm'
+
+      - run: npm ci
+      - run: npm run test:e2e
+        env:
+          JWT_SECRET: ci_jwt_secret
+          DATABASE_URL: "postgresql://ci:cipassword@localhost:5432/apisolid?schema=public"
