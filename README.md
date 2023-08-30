@@ -20,12 +20,12 @@ Gympass style app.
 - [x] User can't do check-in twice a day;
 - [x] User can't do check-in 100m far from gym;
 - [x] The check-in can only be validated until 20 minutes after creation;
-- [ ] The check-in can only be validated by admins;
-- [ ] Gym can only be created by admins
+- [x] The check-in can only be validated by admins;
+- [x] Gym can only be created by admins
 
 ## NFRs (Not functional requirements)
 
 - [x] Password must be encrypted;
 - [x] Data must be in PostgreSQL;
 - [x] All data lists must be paginates with maximum of 20 items per page;
-- [ ] User must be authenticated by JWT token (JSON Web Token);
+- [x] User must be authenticated by JWT token (JSON Web Token);
